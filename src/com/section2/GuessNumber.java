@@ -19,7 +19,7 @@ public class GuessNumber {
         String userName = "\033[1m" + userInput.nextLine();
 
         System.out.println("\nWell, " + userName + " I am thinking of a number between 1 to 20");
-        System.out.println("Take a guess ");
+        System.out.println("Take a guess (enter a number between 1 to 20) ");
 
         try {
 
