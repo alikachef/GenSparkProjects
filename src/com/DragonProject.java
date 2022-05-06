@@ -4,10 +4,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DragonProject {
-    public static String name;
-    public static String answer;
-
-
     public static void main(String[] args) {
         int exitC = 0;
 
