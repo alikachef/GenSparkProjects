@@ -1,9 +1,5 @@
 import org.junit.jupiter.api.*;
 
-
-
-import java.util.Scanner;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class DragonProjectTest {

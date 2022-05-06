@@ -30,10 +30,10 @@ public class DragonProject {
     public static String getUserChoice (int s){
         try {
             if (s == 1) {
-                System.out.println("You approach the cave...");
+                System.out.println("\nYou approach the cave...");
                 System.out.println("\nIt is dark and spooky...");
                 System.out.println("\nA large dragon jumps out in front of you! He opens his jaws ");
-                System.out.println("and...");
+                System.out.println("\nand...");
 
                 return ("Cave 1 was selected, user died");
             }
