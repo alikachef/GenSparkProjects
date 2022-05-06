@@ -1,5 +1,3 @@
-package com.section2;
-
 import java.text.MessageFormat;
 import java.util.InputMismatchException;
 import java.util.Random;
