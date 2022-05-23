@@ -73,7 +73,7 @@ public class Hangman {
     }
     public static String movieName() throws FileNotFoundException {
         Random rand = new Random();
-        Scanner scanner = new Scanner(new File("src/com/Hangman/moviesList.txt"));
+        Scanner scanner = new Scanner(new File("src/com/Hangman/moviesArabic"));
         List<String> words = new ArrayList<>();
 
         while (scanner.hasNext()){
