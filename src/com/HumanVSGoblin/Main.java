@@ -7,7 +7,7 @@ public class Main {
         Land playingFeild = new Land(5);
         Humans humans = new Humans("ali", "BareHands", 100, 0, playingFeild.getSize() -1);
         Goblin g1 = new Goblin("Small", 30, 3,2, false);
-        Goblin g2 = new Goblin("BigScout", 70, playingFeild.getSize() - 2, 0, false);
+        Goblin g2 = new Goblin("BigScout", 70, 1, 0, false);
         Goblin g3 = new Goblin("Big", 60, 0,0, false);
 
         playingFeild.initateGame();
@@ -19,6 +19,7 @@ public class Main {
             String pos = userInput.nextLine();
             humans.movePlayer(pos);
             g1.GoblinTurn(humans);
+            g2.scout(playingFeild);
             g3.GoblinTurn(humans);
         }
         System.out.println("you lost");

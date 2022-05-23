@@ -8,6 +8,8 @@ public class Goblin {
 
     private boolean isDead;
 
+    private boolean leftRight = false;
+
     private int x;
     private int y;
 
@@ -122,7 +124,21 @@ public class Goblin {
                     human.damageBySmallGoblin();
             }
         }
+        }
+    }
+    public void scout(Land land){
 
+        if(!leftRight){
+            this.setX(this.getX() - 1);
+            if(this.getX() == 0 ){
+                leftRight = true;
+            }
+        }
+        if (leftRight){
+            this.setX(this.getX() + 1);
+            if(this.getX() == land.getSize() -1){
+                leftRight = false;
+            }
         }
     }
     public void GoblinMove(Humans human){
