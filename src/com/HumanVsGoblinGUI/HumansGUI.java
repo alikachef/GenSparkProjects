@@ -50,7 +50,6 @@ public class HumansGUI {
         if (this.health <= 0){
             this.health = 0;
         }
-        System.out.println();
 
         if (this.health == 0){
             System.out.println("You are dead");
@@ -67,10 +66,9 @@ public class HumansGUI {
         label1.setText("<html>"+"Got hit by Big Goblin. Health is reduced by 10.<br/>Player Health is: " + this.health+ "</html>");
         label1.setForeground(Color.white);
         label.add(label1);
-        System.out.println();
+
 
         if (this.health == 0){
-            System.out.println("You are dead");
             this.isDead = true;
         }
     }

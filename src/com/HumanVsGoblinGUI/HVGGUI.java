@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class HVGGUI implements ActionListener{
     static LandGUI playingFeild = new LandGUI(5);
-    static HumansGUI humans = new HumansGUI("ali", "BareHands", 30, 0, playingFeild.getSize() -1);
+    static HumansGUI humans = new HumansGUI("ali", "BareHands", 100, 0, playingFeild.getSize() -1);
     static GoblinGUI g1 = new GoblinGUI("Small", 40, 3,2, false);
     static GoblinGUI g2 = new GoblinGUI("BigScout", 60, 1, 0, false);
     static GoblinGUI g3 = new GoblinGUI("Big", 70, 0,0, false);
@@ -39,9 +39,6 @@ public class HVGGUI implements ActionListener{
 
 
     }
-
-
-
 
     @Override
     public void actionPerformed(ActionEvent e) {

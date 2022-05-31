@@ -28,7 +28,6 @@ public class LandGUI {
                 labels[i][j].setIcon(null);
                 if (i == ran && j == ranj ) {
                     labels[i][j].setIcon(new ImageIcon( new ImageIcon("src/com/HumanVsGoblinGUI/Assests/chest.png").getImage().getScaledInstance(50,50, Image.SCALE_SMOOTH)));
-                    System.out.println(j + " " + " " +i);
                     if(human.getX()==ran && human.getY() == ran) {
                         treasurChest(human, g1, g2, g3);
                     }

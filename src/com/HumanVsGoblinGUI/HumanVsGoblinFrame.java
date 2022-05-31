@@ -56,7 +56,6 @@ public class HumanVsGoblinFrame extends JFrame{
 
 
         buttonN = new JButton();
-        buttonN.addActionListener(e-> System.out.println("n"));
         buttonN.setText("N");
         buttonN.setFocusable(false);
         buttonN.setBorder(BorderFactory.createEtchedBorder());
@@ -67,7 +66,6 @@ public class HumanVsGoblinFrame extends JFrame{
 
 
         buttonE = new JButton();
-        buttonE.addActionListener(e-> System.out.println("e"));
         buttonE.setText("E");
         buttonE.setFocusable(false);
         buttonE.setBorder(BorderFactory.createEtchedBorder());
@@ -78,7 +76,6 @@ public class HumanVsGoblinFrame extends JFrame{
 
 
         buttonS = new JButton();
-        buttonS.addActionListener(e-> System.out.println("s"));
         buttonS.setText("S");
         buttonS.setFocusable(false);
         buttonS.setBorder(BorderFactory.createEtchedBorder());
@@ -89,7 +86,6 @@ public class HumanVsGoblinFrame extends JFrame{
 
 
         buttonW = new JButton();
-        buttonW.addActionListener(e-> System.out.println("w"));
         buttonW.setText("W");
         buttonW.setFocusable(false);
         buttonW.setBorder(BorderFactory.createEtchedBorder());
