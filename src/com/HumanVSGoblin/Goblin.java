@@ -141,7 +141,7 @@ public class Goblin {
             }
         }
     }
-    public void GoblinMove(Humans human){
+    private void GoblinMove(Humans human){
         if(!this.type.equals("BigScout")) {
             int xd = this.x - human.getX();
             int yd = this.y - human.getY();
