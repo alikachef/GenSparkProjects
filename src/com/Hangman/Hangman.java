@@ -1,7 +1,9 @@
 package Hangman;
 
-import java.io.*;
-import java.net.HttpURLConnection;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,12 +11,10 @@ import java.util.Scanner;
 
 
 public class Hangman {
-    private  static HttpURLConnection connection;
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String[] args) throws IOException {
 
         int tries = 0;
-        int exitCode = 1;
         int score = 0;
         String word = movieName();
         String test = "";
@@ -27,7 +27,7 @@ public class Hangman {
         String name = userInput.nextLine();
 
         System.out.println();
-        System.out.println(String.format("Welcome %s To", name.trim() ));
+        System.out.println("Welcome " + name.trim() + " To");
 
         System.out.println("   "+"H A N G M A N");
         System.out.println("       "+"+---+");
@@ -91,12 +91,10 @@ public class Hangman {
             words.add(scanner.nextLine());
         }
 
-        String word = words.get(rand.nextInt(words.size())).toLowerCase();
-
-        return word;
+        return words.get(rand.nextInt(words.size())).toLowerCase();
     }
 
-    private static boolean printWordState(String word, List<Character> playerGuess, int tries) throws FileNotFoundException {
+    private static boolean printWordState(String word, List<Character> playerGuess, int tries) {
         try {
             Scanner file = new Scanner(new File("src/com/Hangman/Assets/hangman.txt"));
             ArrayList<String> drawing = new ArrayList<>();
@@ -105,27 +103,13 @@ public class Hangman {
             }
             System.out.println();
             switch (tries) {
-                case 0:
-                    drawing.subList(0, 5).forEach(System.out::println);
-                    break;
-                case 1:
-                    drawing.subList(5, 10).forEach(System.out::println);
-                    break;
-                case 2:
-                    drawing.subList(10, 15).forEach(System.out::println);
-                    break;
-                case 3:
-                    drawing.subList(15, 20).forEach(System.out::println);
-                    break;
-                case 4:
-                    drawing.subList(20, 25).forEach(System.out::println);
-                    break;
-                case 5:
-                    drawing.subList(25, 30).forEach(System.out::println);
-                    break;
-                case 6:
-                    drawing.subList(30, 35).forEach(System.out::println);
-                    break;
+                case 0 -> drawing.subList(0, 5).forEach(System.out::println);
+                case 1 -> drawing.subList(5, 10).forEach(System.out::println);
+                case 2 -> drawing.subList(10, 15).forEach(System.out::println);
+                case 3 -> drawing.subList(15, 20).forEach(System.out::println);
+                case 4 -> drawing.subList(20, 25).forEach(System.out::println);
+                case 5 -> drawing.subList(25, 30).forEach(System.out::println);
+                case 6 -> drawing.subList(30, 35).forEach(System.out::println);
             }
         }
         catch (FileNotFoundException msg){
