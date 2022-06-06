@@ -13,28 +13,21 @@ public class Hangman {
 
     public static void main(String args[]) throws IOException {
 
-
-
-
         int tries = 0;
         int exitCode = 1;
         int score = 0;
         String word = movieName();
         String test = "";
         List<Character> playerGuess = new ArrayList<>();
-
         playerGuess.add(' ');
         playerGuess.add('\'');
-        Scanner userInput = new Scanner(System.in);
-        Scanner toPrint = new Scanner(new File("src/com/Hangman/Assets/scores.txt"));
 
+        Scanner userInput = new Scanner(System.in);
         System.out.print("Enter your name: ");
         String name = userInput.nextLine();
+
         System.out.println();
         System.out.println(String.format("Welcome %s To", name.trim() ));
-
-
-
 
         System.out.println("   "+"H A N G M A N");
         System.out.println("       "+"+---+");
@@ -42,10 +35,18 @@ public class Hangman {
         System.out.println("       "+"    |");
         System.out.println("       "+"    |");
         System.out.println("       "+"   ===");
-        if (toPrint.hasNext()) {
-             test = toPrint.nextLine();
-            System.out.println(test);
+
+        try {
+            Scanner toPrint = new Scanner(new File("src/com/Hangman/Assets/scores.txt"));
+            if (toPrint.hasNext()) {
+                test = toPrint.nextLine();
+                System.out.println(test);
+            }
         }
+        catch (FileNotFoundException msg){
+            System.out.println("No file was found ERROR: " + msg);
+        }
+
 
         System.out.println("Press Enter to Start...");
         userInput.nextLine();
@@ -96,37 +97,42 @@ public class Hangman {
     }
 
     private static boolean printWordState(String word, List<Character> playerGuess, int tries) throws FileNotFoundException {
-        Scanner file = new Scanner(new File("src/com/Hangman/Assets/hangman.txt"));
-        ArrayList<String> drawing = new ArrayList<>();
-        while (file.hasNext()){
-            drawing.add(file.nextLine());
+        try {
+            Scanner file = new Scanner(new File("src/com/Hangman/Assets/hangman.txt"));
+            ArrayList<String> drawing = new ArrayList<>();
+            while (file.hasNext()) {
+                drawing.add(file.nextLine());
+            }
+            System.out.println();
+            switch (tries) {
+                case 0:
+                    drawing.subList(0, 5).forEach(System.out::println);
+                    break;
+                case 1:
+                    drawing.subList(5, 10).forEach(System.out::println);
+                    break;
+                case 2:
+                    drawing.subList(10, 15).forEach(System.out::println);
+                    break;
+                case 3:
+                    drawing.subList(15, 20).forEach(System.out::println);
+                    break;
+                case 4:
+                    drawing.subList(20, 25).forEach(System.out::println);
+                    break;
+                case 5:
+                    drawing.subList(25, 30).forEach(System.out::println);
+                    break;
+                case 6:
+                    drawing.subList(30, 35).forEach(System.out::println);
+                    break;
+            }
         }
-        int correctCount = 0;
-        System.out.println();
+        catch (FileNotFoundException msg){
+            System.out.println("No File was found ERROR: " + msg);
+        }
 
-        switch (tries){
-            case 0:
-                drawing.subList(0,5).forEach(System.out::println);
-                break;
-            case 1:
-                drawing.subList(5,10).forEach(System.out::println);
-                break;
-            case 2:
-                drawing.subList(10,15).forEach(System.out::println);
-                break;
-            case 3:
-                drawing.subList(15,20).forEach(System.out::println);
-                break;
-            case 4:
-                drawing.subList(20,25).forEach(System.out::println);
-                break;
-            case 5:
-                drawing.subList(25,30).forEach(System.out::println);
-                break;
-            case 6:
-                drawing.subList(30,35).forEach(System.out::println);
-                break;
-        }
+        int correctCount = 0;
 
         for( int i = 0; i < word.length(); i++){
             if(playerGuess.contains(word.charAt(i))){
