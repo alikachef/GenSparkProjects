@@ -1,4 +1,3 @@
-import java.lang.reflect.Type;
 import java.text.MessageFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -11,7 +10,7 @@ public class DragonProject {
 
         System.out.println("Enter Your Name Brave Traveler");
 
-        String userName = userInput.nextLine();
+        String userName = userInput.nextLine(); 
         userName = userName.replaceAll("[^a-zA-Z]", "");
 
         System.out.println(MessageFormat.format("{0}, You are in a land full of Dragons. In front of you,", userName));
