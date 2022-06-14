@@ -10,6 +10,18 @@ public class Main {
         System.out.println("Enter Name");
         String name = userInput.nextLine();
 
+        System.out.println("Enter Gender");
+        String gender = userInput.nextLine();
+
+        System.out.println("Enter age");
+        String age = userInput.nextLine();
+
+        System.out.println("Enter Email");
+        String email = userInput.nextLine();
+
+        System.out.println("Enter Phone Number");
+        String phone = userInput.nextLine();
+
         System.out.println("Choose Flight Class (B for Business or E for Economy)");
         String type = userInput.nextLine();
 
@@ -20,7 +32,7 @@ public class Main {
         String destination = userInput.nextLine();
 
 
-       BoardingPass pass1 = new BoardingPass(type, name,  from, destination);
+       BoardingPass pass1 = new BoardingPass(type, name,  from, destination,age,email,gender, phone);
        pass1.generatePass();
        pass1.writeImage();
     }
