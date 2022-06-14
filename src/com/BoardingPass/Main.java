@@ -34,6 +34,7 @@ public class Main {
 
        BoardingPass pass1 = new BoardingPass(type, name,  from, destination,age,email,gender, phone);
        pass1.generatePass();
+         pass1.calculatePrice();
        pass1.writeImage();
     }
 }

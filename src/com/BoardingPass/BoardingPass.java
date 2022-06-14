@@ -9,26 +9,22 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class BoardingPass {
-    private final String aToZ = "abcdefghijklmnopqrstuvwxyz";
     private BufferedImage boardingPass = new BufferedImage(708, 312, BufferedImage.TYPE_INT_ARGB);
-    private File file;
-    private File generatedFiles = new File("src/com/BoardingPass/BoardingPassOutput");
-    private String type;
-    private String name;
+    private final File generatedFiles = new File("src/com/BoardingPass/BoardingPassOutput");
+    private final String type;
+    private final String name;
     private String flightNum;
-    private String from;
-    private String destination;
+    private final String from;
+    private final String destination;
     private Date date = new Date();
     private String gate;
     private String seat;
-    private String gender;
-    private String email;
-    private String phone;
-    private String age;
-    private Random ran = new Random();
+    private final String gender;
+    private final String email;
+    private final String phone;
+    private final String age;
+    private final Random ran = new Random();
     Scanner userInput = new Scanner(System.in);
-
-
     public BoardingPass(String type, String name, String from, String destination, String age, String email, String gender, String phone) {
         this.gender = gender;
         this.age = age;
@@ -39,12 +35,6 @@ public class BoardingPass {
         this.destination = destination;
         this.phone = phone;
     }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-
     public void generatePass() throws IOException {
         boardingPass = passType();
         flightNum = generateFlightNum();
@@ -127,10 +117,8 @@ public class BoardingPass {
         g2d.dispose();
 
     }
-
-
     public void writeImage() throws IOException {
-        file = new File("src/com/BoardingPass/BoardingPassOutput/BoardingPass" + flightNum +"-" + seat +  ".png");
+        File file = new File("src/com/BoardingPass/BoardingPassOutput/BoardingPass" + flightNum + "-" + seat + ".png");
         ImageIO.write(boardingPass, "png", file);
     }
     private BufferedImage passType() throws IOException {
@@ -144,7 +132,8 @@ public class BoardingPass {
         return boardingPass;
     }
     private String generateFlightNum(){
-     int ranS = ran.nextInt(aToZ.length());
+        String aToZ = "abcdefghijklmnopqrstuvwxyz";
+        int ranS = ran.nextInt(aToZ.length());
      int rans2 = ran.nextInt(aToZ.length());
 
      flightNum = (ran.nextInt(0,9)) + aToZ.substring(ranS, ranS+1)
@@ -222,5 +211,18 @@ public class BoardingPass {
             return date;
         }
     }
-
+    public void calculatePrice() {
+        try{
+            System.out.println("Estimated Arrival time for this ticket");
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            int hours = ran.nextInt(6,24);
+            calendar.add(Calendar.HOUR, hours);
+            date = calendar.getTime();
+            System.out.println(date);
+        }
+        catch (Exception e){
+            System.out.println("ERROR! Something went wrong");
+        }
+    }
 }
