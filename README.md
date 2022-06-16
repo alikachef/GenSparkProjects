@@ -2,6 +2,7 @@ Genspark Projects Consist of 6 projects
 
 #1 Dragon Cave a console game where the player needs to make the right decision 
 <img src="https://user-images.githubusercontent.com/70487686/172669044-dc16b140-5f2f-4671-b159-cb13fac7ce68.png" width="250" height="150">
+
 #2 Guess the Number a console game where the system will get a random number and the player needs to guess it 
 ![image](https://user-images.githubusercontent.com/70487686/172669445-0b1324c2-65d3-4d81-8f2e-59050ae8409b.png)
 
