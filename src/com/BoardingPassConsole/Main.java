@@ -1,4 +1,4 @@
-package BoardingPass;
+package BoardingPassConsole;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -32,9 +32,12 @@ public class Main {
         String destination = userInput.nextLine();
 
 
+
        BoardingPass pass1 = new BoardingPass(type, name,  from, destination,age,email,gender, phone);
        pass1.generatePass();
-         pass1.calculatePrice();
+       pass1.calculateEta();
+       pass1.claculateCost();
        pass1.writeImage();
+
     }
 }

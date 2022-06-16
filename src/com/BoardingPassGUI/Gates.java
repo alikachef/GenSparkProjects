@@ -1,4 +1,4 @@
-package BoardingPass;
+package BoardingPassGUI;
 
 public enum Gates {
     A1,

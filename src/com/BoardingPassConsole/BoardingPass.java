@@ -1,4 +1,4 @@
-package BoardingPass;
+package BoardingPassConsole;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -10,7 +10,7 @@ import java.util.*;
 
 public class BoardingPass {
     private BufferedImage boardingPass = new BufferedImage(708, 312, BufferedImage.TYPE_INT_ARGB);
-    private final File generatedFiles = new File("src/com/BoardingPass/BoardingPassOutput");
+    private final File generatedFiles = new File("src/com/BoardingPassConsole/BoardingPassOutput");
     private final String type;
     private final String name;
     private String flightNum;
@@ -118,15 +118,15 @@ public class BoardingPass {
 
     }
     public void writeImage() throws IOException {
-        File file = new File("src/com/BoardingPass/BoardingPassOutput/BoardingPass" + flightNum + "-" + seat + ".png");
+        File file = new File("src/com/BoardingPassConsole/BoardingPassOutput/BoardingPass" + flightNum + "-" + seat + ".png");
         ImageIO.write(boardingPass, "png", file);
     }
     private BufferedImage passType() throws IOException {
         if(type.toUpperCase().equals("B")) {
-            boardingPass = ImageIO.read(new File(("src/com/BoardingPass/Assets/BuisnessClass.jpg")));
+            boardingPass = ImageIO.read(new File(("src/com/BoardingPassConsole/Assets/BuisnessClass.jpg")));
         }
         else {
-            boardingPass = ImageIO.read(new File(("src/com/BoardingPass/Assets/EconomyClass.jpg")));
+            boardingPass = ImageIO.read(new File(("src/com/BoardingPassConsole/Assets/EconomyClass.jpg")));
         }
 
         return boardingPass;
@@ -211,7 +211,7 @@ public class BoardingPass {
             return date;
         }
     }
-    public void calculatePrice() {
+    public void calculateEta() {
         try{
             System.out.println("Estimated Arrival time for this ticket");
             Calendar calendar = Calendar.getInstance();
@@ -223,6 +223,29 @@ public class BoardingPass {
         }
         catch (Exception e){
             System.out.println("ERROR! Something went wrong");
+        }
+    }
+    public void claculateCost(){
+        double originalPrice = ran.nextInt(760, 2000);
+        double price;
+        if (Integer.parseInt(age) <= 12){
+            price = originalPrice - (originalPrice * 0.50);
+            System.out.println("\nKid discount added %50 off");
+            System.out.println("Ticket price: "+ originalPrice);
+            System.out.println("Final price after discount: " + price);
+        } else if (Integer.parseInt(age) >= 60) {
+            price = originalPrice - (originalPrice * 0.60);
+            System.out.println("\nElderly discount added %60 off");
+            System.out.println("Ticket price: "+ originalPrice);
+            System.out.println("Final price after discount: " + price);
+        } else if (gender.toUpperCase().equals("F")) {
+            price = originalPrice - (originalPrice * 0.25);
+            System.out.println("\nFemale discount added %25 off");
+            System.out.println("Ticket price: "+ originalPrice);
+            System.out.println("Final price after discount: " + price);
+        }else{
+            System.out.println("\nThere is no qualifying discount");
+            System.out.println("Ticket price: " + originalPrice);
         }
     }
 }
